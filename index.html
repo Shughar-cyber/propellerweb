@@ -520,11 +520,10 @@
 
     <form id="applicationForm" enctype="multipart/form-data" novalidate>
 
-      <!-- Web3Forms hidden fields -->
-      <input type="hidden" name="access_key" value="f86ee023-cbb4-4467-a521-5a5795b03f85" />
-      <input type="hidden" name="subject" value="New Job Application Received!" />
-      <input type="hidden" name="from_name" value="Propeller Digital Agency" />
-      <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+      <!-- Basin hidden fields -->
+      <input type="hidden" name="_subject" value="New Job Application Received!" />
+      <input type="hidden" name="_redirect" value="false" />
+      <input type="text" name="_honey" style="display:none" />
 
       <div class="grid sm:grid-cols-2 gap-5">
 
@@ -624,14 +623,120 @@
       </button>
 
     </form>
+
+    <script>
+      const BASIN_ENDPOINT = 'https://usebasin.com/f/e1e8d78ad55b';
+
+      document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        console.log('=== BASIN FORM SUBMISSION STARTED ===');
+        console.log('Endpoint:', BASIN_ENDPOINT);
+
+        // Validate fields
+        const fields = ['fullName', 'address', 'age', 'gender', 'phone', 'email'];
+        let valid = true;
+
+        fields.forEach(fieldId => {
+          const el = document.getElementById(fieldId);
+          const err = document.getElementById(fieldId + 'Error');
+          if (!el.value.trim()) {
+            err.textContent = 'This field is required';
+            valid = false;
+          } else {
+            err.textContent = '';
+          }
+        });
+
+        if (!valid) {
+          console.log('❌ Validation failed');
+          return;
+        }
+
+        // Check resume
+        const resumeInput = document.getElementById('resume');
+        const resumeErr = document.getElementById('resumeError');
+        if (!resumeInput.files[0]) {
+          resumeErr.textContent = 'Please upload your resume';
+          console.log('❌ No resume uploaded');
+          return;
+        }
+
+        // Show loading
+        const btn = document.getElementById('submitBtn');
+        const icon = document.getElementById('submitIcon');
+        const text = document.getElementById('submitText');
+        btn.disabled = true;
+        icon.className = 'fas fa-spinner fa-spin';
+        text.textContent = 'Submitting...';
+
+        try {
+          console.log('✓ Validation passed');
+          console.log('Creating FormData with all fields...');
+
+          const formData = new FormData(this);
+
+          console.log('Form data entries:');
+          for (let [key, value] of formData.entries()) {
+            if (key === 'Resume') {
+              console.log(`  ✓ ${key}: [File: ${value.name}, Size: ${(value.size/1024).toFixed(2)}KB]`);
+            } else {
+              console.log(`  ✓ ${key}: ${value}`);
+            }
+          }
+
+          console.log('\n📤 Sending to Basin...');
+          const response = await fetch(BASIN_ENDPOINT, {
+            method: 'POST',
+            body: formData
+          });
+
+          console.log('HTTP Status:', response.status);
+
+          // Basin returns 200 on success
+          if (response.ok) {
+            console.log('✅ SUCCESS - Form submitted to Basin!');
+            document.getElementById('successMsg').classList.remove('hidden');
+            document.getElementById('errorMsg').classList.add('hidden');
+            this.reset();
+            document.getElementById('uploadText').textContent = 'Click to upload your resume';
+            document.getElementById('uploadSubText').textContent = 'or drag and drop your file here';
+            document.getElementById('uploadIconEl').className = 'fas fa-cloud-upload-alt text-brand-sky text-2xl';
+
+            // Scroll to success message
+            setTimeout(() => {
+              document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 500);
+          } else {
+            console.error('❌ Basin returned status:', response.status);
+            const errorText = document.querySelector('#errorMsg p');
+            if (errorText) {
+              errorText.textContent = `Submission failed (HTTP ${response.status}). Please try again.`;
+            }
+            document.getElementById('errorMsg').classList.remove('hidden');
+            document.getElementById('successMsg').classList.add('hidden');
+          }
+        } catch (err) {
+          console.error('❌ Network/Fetch Error:', err.message);
+          const errorText = document.querySelector('#errorMsg p');
+          if (errorText) {
+            errorText.textContent = 'Network error: ' + err.message + '. Check your connection.';
+          }
+          document.getElementById('errorMsg').classList.remove('hidden');
+        } finally {
+          // Reset button
+          btn.disabled = false;
+          icon.className = 'fas fa-paper-plane';
+          text.textContent = 'Submit Application';
+          console.log('=== FORM SUBMISSION ENDED ===\n');
+        }
+      });
+    </script>
+
     <p class="text-center text-gray-400 text-xs mt-4">By submitting, you agree to be contacted by our recruitment team.</p>
   </div>
 </div>
 </div>
 
-
-              <p class="text-center text-gray-400 text-xs mt-4">By submitting, you agree to be contacted by our recruitment team.</p>
-            </form>
           </div>
         </div>
       </div>

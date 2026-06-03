@@ -278,33 +278,34 @@ document.addEventListener('DOMContentLoaded', () => {
     errorMsg.classList.add('hidden');
 
     try {
-      const res  = await fetch('https://api.web3forms.com/submit', {
+      const formData = new FormData(form);
+
+      const res = await fetch('https://usebasin.com/f/e1e8d78ad55b', {
         method: 'POST',
-        body: new FormData(form)
+        headers: { 'Accept': 'application/json' },
+        body: formData
       });
+
       const data = await res.json();
+      console.log('Basin response:', data);
 
-      console.log('Web3Forms response:', data);
-
-      if (data.success) {
-        // Show modal
+      if (res.ok && data.success) {
+        // Show modal + inline banner
         showSuccessModal();
-        // Show inline success banner
         successMsg.classList.remove('hidden');
         errorMsg.classList.add('hidden');
-        // Reset form and UI
+        // Reset form and upload UI
         form.reset();
         resetUploadUI();
-        // Scroll to top of form
         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         errorMsg.classList.remove('hidden');
         successMsg.classList.add('hidden');
-        console.error('Web3Forms error:', data);
+        console.error('Basin error:', data);
       }
 
     } catch (err) {
-      console.error('Fetch error:', err.message);
+      console.error('Basin fetch error:', err.message);
       errorMsg.classList.remove('hidden');
     }
 
