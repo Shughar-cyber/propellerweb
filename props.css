@@ -1,0 +1,296 @@
+/* ═══════════════════════════════════════════════
+   Propeller Digital Agency — Recruitment Page
+   style.css
+═══════════════════════════════════════════════ */
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; }
+
+/* ── NAVBAR ─────────────────────────────────── */
+#navbar {
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+#navbar.scrolled {
+  background: linear-gradient(135deg, #0f2d5e 0%, #1a4fa0 100%);
+  box-shadow: 0 4px 30px rgba(15,45,94,0.25);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.ham-bar { display: block; transition: all 0.3s ease; }
+#hamburger.open .ham-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+#hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+#hamburger.open .ham-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ── HERO ────────────────────────────────────── */
+.hero-gradient {
+  background: linear-gradient(135deg, #0a1e3d 0%, #0f2d5e 40%, #1a4fa0 70%, #2d8de0 100%);
+  position: relative;
+}
+
+/* Background animated shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.07;
+  animation: floatShape 8s ease-in-out infinite;
+}
+.shape-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, #60b8f5 0%, transparent 70%);
+  top: -200px; right: -100px;
+  animation-delay: 0s;
+}
+.shape-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #2d8de0 0%, transparent 70%);
+  bottom: -100px; left: -150px;
+  animation-delay: 2s;
+}
+.shape-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #60b8f5 0%, transparent 70%);
+  top: 50%; left: 30%;
+  animation-delay: 4s;
+  opacity: 0.04;
+}
+.shape-4 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+  top: 20%; left: 60%;
+  animation-delay: 1s;
+  opacity: 0.03;
+}
+@keyframes floatShape {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+/* "IS HIRING!" badge */
+.is-hiring-badge {
+  background: linear-gradient(135deg, #1a4fa0 0%, #2d8de0 100%);
+  box-shadow: 0 8px 32px rgba(45,141,224,0.4);
+  display: inline-block;
+}
+
+/* Stat cards */
+.stat-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+}
+
+/* Floating cards */
+.floating-card { animation: gentleFloat 4s ease-in-out infinite; }
+.float-card-1 { animation-delay: 0s; }
+.float-card-2 { animation-delay: 1.5s; }
+.float-card-3 { animation-delay: 0.8s; }
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ── SECTIONS ─────────────────────────────────── */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  background: linear-gradient(135deg, #e8f4fd 0%, #d0ebfc 100%);
+  color: #1a4fa0;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: 1px solid #b3d9f6;
+}
+
+/* ── ABOUT CARDS ──────────────────────────────── */
+.about-card { transition: transform 0.3s ease; }
+.about-card:hover { transform: translateY(-4px); }
+
+/* ── FORM STYLES ─────────────────────────────── */
+.form-label {
+  display: block;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #1a2d4f;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+.input-wrapper {
+  position: relative;
+}
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.85rem;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.6rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #1e293b;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-input::placeholder { color: #94a3b8; }
+.form-input:focus {
+  border-color: #2d8de0;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(45,141,224,0.1);
+}
+.form-input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon { color: #2d8de0; }
+.form-input.error { border-color: #f87171; box-shadow: 0 0 0 4px rgba(248,113,113,0.1); }
+.form-input.valid { border-color: #34d399; box-shadow: 0 0 0 4px rgba(52,211,153,0.1); }
+.form-select { cursor: pointer; }
+.form-error {
+  display: block;
+  font-size: 0.75rem;
+  color: #f87171;
+  margin-top: 0.3rem;
+  min-height: 1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Upload area */
+.upload-area {
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #f8fafc;
+}
+.upload-area:hover, .upload-area.drag-over {
+  border-color: #2d8de0;
+  background: #e8f4fd;
+}
+.upload-area.has-file {
+  border-color: #34d399;
+  background: #ecfdf5;
+  border-style: solid;
+}
+
+/* ── ZOOM CARD ──────────────────────────────── */
+.zoom-card { transition: transform 0.3s ease; }
+.zoom-card:hover { transform: translateY(-4px); }
+.zoom-btn { transition: all 0.25s ease; }
+.zoom-btn:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(15,45,94,0.3); }
+
+/* ── WHATSAPP FAB ───────────────────────────── */
+.whatsapp-fab {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.whatsapp-fab:hover {
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: 0 16px 40px rgba(37,211,102,0.4);
+}
+
+/* ── MODAL ──────────────────────────────────── */
+#successModal { animation: none; }
+#successModal.show { display: flex; }
+.scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── SCROLL REVEAL ──────────────────────────── */
+.reveal, .reveal-right {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right {
+  transform: translateX(30px);
+}
+.reveal.visible, .reveal-right.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Staggered children */
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* ── BUTTONS ────────────────────────────────── */
+.btn-primary:active, .btn-secondary:active { transform: scale(0.97); }
+
+/* ── ANIMATE PULSE SLOW ─────────────────────── */
+@keyframes pulseSlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-pulse-slow { animation: pulseSlow 2s ease-in-out infinite; }
+
+/* ── NO-EXP BANNER ──────────────────────────── */
+.no-exp-banner {
+  background: linear-gradient(135deg, #0f2d5e 0%, #1a4fa0 50%, #2d8de0 100%);
+  position: relative;
+  overflow: hidden;
+}
+.no-exp-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 60%);
+  border-radius: 50%;
+}
+
+/* ── TASK CARD ──────────────────────────────── */
+.task-card { position: relative; overflow: hidden; }
+.task-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #2d8de0, #60b8f5);
+  border-radius: 4px 0 0 4px;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: bottom;
+}
+.task-card:hover::before { transform: scaleY(1); }
+
+/* ── DETAIL CARD ────────────────────────────── */
+.detail-card { position: relative; overflow: hidden; }
+.detail-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2d8de0, #60b8f5);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.detail-card:hover::after { transform: scaleX(1); }
+
+/* ── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 640px) {
+  .section-badge { font-size: 0.65rem; }
+  .upload-area { padding: 1.5rem 1rem; }
+}

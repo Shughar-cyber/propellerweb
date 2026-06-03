@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propeller Digital Agency — We're Hiring</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="props.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy:   '#0f2d5e',
+              blue:   '#1a4fa0',
+              sky:    '#2d8de0',
+              light:  '#60b8f5',
+              pale:   '#e8f4fd',
+            }
+          },
+          fontFamily: {
+            display: ['Sora', 'sans-serif'],
+            body:    ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-body bg-white text-gray-800 overflow-x-hidden">
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-sky to-brand-navy flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+          <i class="fas fa-paper-plane text-white text-sm rotate-45"></i>
+        </div>
+        <div>
+          <div class="font-display font-800 text-white text-sm leading-tight tracking-wide">PROPELLER</div>
+          <div class="font-display text-brand-light text-xs leading-tight tracking-widest">DIGITAL AGENCY</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden lg:flex items-center gap-1">
+        <li><a href="#about"    class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">About Us</a></li>
+        <li><a href="#whatyoulldo" class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">What You'll Do</a></li>
+        <li><a href="#jobdetails"  class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">Job Details</a></li>
+        <li><a href="#apply"    class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">Apply Now</a></li>
+        <li><a href="#zoom"     class="nav-link px-4 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">Zoom Interview</a></li>
+      </ul>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="#apply" class="hidden md:inline-flex items-center gap-2 bg-white text-brand-navy font-display font-semibold text-sm px-5 py-2.5 rounded-full shadow hover:shadow-md hover:scale-105 transition-all">
+          <i class="fas fa-rocket text-xs"></i> Apply Now
+        </a>
+        <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/10 transition-all" aria-label="Toggle menu">
+          <span class="ham-bar w-6 h-0.5 bg-white transition-all"></span>
+          <span class="ham-bar w-6 h-0.5 bg-white transition-all"></span>
+          <span class="ham-bar w-6 h-0.5 bg-white transition-all"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden mt-2 mx-4 rounded-2xl bg-brand-navy/95 backdrop-blur-md border border-white/10 overflow-hidden">
+      <ul class="py-2">
+        <li><a href="#about"       class="mobile-nav-link block px-6 py-3 text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">About Us</a></li>
+        <li><a href="#whatyoulldo" class="mobile-nav-link block px-6 py-3 text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">What You'll Do</a></li>
+        <li><a href="#jobdetails"  class="mobile-nav-link block px-6 py-3 text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">Job Details</a></li>
+        <li><a href="#apply"       class="mobile-nav-link block px-6 py-3 text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">Apply Now</a></li>
+        <li><a href="#zoom"        class="mobile-nav-link block px-6 py-3 text-white/90 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">Zoom Interview</a></li>
+        <li class="px-4 pb-3 pt-1">
+          <a href="#apply" class="flex items-center justify-center gap-2 bg-brand-sky text-white font-semibold text-sm px-5 py-3 rounded-xl hover:bg-brand-light transition-all">
+            <i class="fas fa-rocket text-xs"></i> Apply Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden hero-gradient">
+
+    <!-- Animated background shapes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <!-- Grid overlay -->
+      <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.3) 1px,transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36 grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+          <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Now Accepting Applications Worldwide
+        </div>
+        <h1 class="font-display font-extrabold text-white leading-tight mb-6">
+          <span class="block text-5xl sm:text-6xl lg:text-7xl">PROPELLER</span>
+          <span class="block text-5xl sm:text-6xl lg:text-7xl text-brand-light">DIGITAL AGENCY</span>
+          <span class="block mt-2 text-4xl sm:text-5xl lg:text-6xl">
+            <span class="relative inline-block">
+              <span class="is-hiring-badge px-4 py-1 rounded-xl text-white">IS HIRING!</span>
+            </span>
+          </span>
+        </h1>
+        <p class="text-white/80 text-lg sm:text-xl mb-8 max-w-lg leading-relaxed">
+          Remote data entry opportunities available worldwide. No experience needed — we train and equip you for success.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#apply" class="btn-primary inline-flex items-center gap-2 bg-white text-brand-navy font-display font-bold px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
+            <i class="fas fa-paper-plane"></i> Apply Now
+          </a>
+          <a href="#about" class="btn-secondary inline-flex items-center gap-2 border-2 border-white/40 text-white font-display font-semibold px-8 py-4 rounded-full hover:bg-white/10 hover:border-white transition-all backdrop-blur-sm">
+            <i class="fas fa-info-circle"></i> Learn More
+          </a>
+        </div>
+
+        <!-- Floating stats -->
+        <div class="flex flex-wrap gap-4 mt-10">
+          <div class="stat-card bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3 text-center">
+            <div class="font-display font-extrabold text-white text-2xl">$35</div>
+            <div class="text-white/70 text-xs">Per Hour</div>
+          </div>
+          <div class="stat-card bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3 text-center">
+            <div class="font-display font-extrabold text-white text-2xl">100%</div>
+            <div class="text-white/70 text-xs">Remote</div>
+          </div>
+          <div class="stat-card bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3 text-center">
+            <div class="font-display font-extrabold text-white text-2xl">Free</div>
+            <div class="text-white/70 text-xs">Training</div>
+          </div>
+          <div class="stat-card bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3 text-center">
+            <div class="font-display font-extrabold text-white text-2xl">0</div>
+            <div class="text-white/70 text-xs">Exp. Needed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating cards side -->
+      <div class="hidden lg:flex flex-col gap-4 items-end reveal-right">
+        <div class="floating-card bg-white rounded-2xl shadow-2xl p-5 w-72 float-card-1">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-brand-pale rounded-xl flex items-center justify-center">
+              <i class="fas fa-globe text-brand-sky"></i>
+            </div>
+            <div>
+              <div class="font-display font-bold text-brand-navy text-sm">Work From Anywhere</div>
+              <div class="text-gray-500 text-xs">Worldwide Remote</div>
+            </div>
+          </div>
+          <div class="flex gap-1">
+            <span class="px-2 py-0.5 bg-brand-pale text-brand-sky text-xs rounded-full font-medium">Remote</span>
+            <span class="px-2 py-0.5 bg-green-50 text-green-600 text-xs rounded-full font-medium">Full-time</span>
+            <span class="px-2 py-0.5 bg-purple-50 text-purple-600 text-xs rounded-full font-medium">Part-time</span>
+          </div>
+        </div>
+
+        <div class="floating-card bg-white rounded-2xl shadow-2xl p-5 w-64 float-card-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center">
+              <i class="fas fa-dollar-sign text-green-500"></i>
+            </div>
+            <div>
+              <div class="font-display font-bold text-brand-navy text-lg">$35/hr</div>
+              <div class="text-gray-500 text-xs">Competitive Pay Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card bg-brand-navy rounded-2xl shadow-2xl p-5 w-72 float-card-3">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 bg-brand-sky/20 rounded-xl flex items-center justify-center">
+              <i class="fas fa-laptop text-brand-light"></i>
+            </div>
+            <div>
+              <div class="font-display font-bold text-white text-sm">Equipment Provided</div>
+              <div class="text-white/60 text-xs">After Onboarding</div>
+            </div>
+          </div>
+          <div class="w-full bg-white/10 rounded-full h-1.5 mt-3">
+            <div class="bg-brand-sky rounded-full h-1.5 w-4/5 animate-pulse-slow"></div>
+          </div>
+          <div class="flex justify-between text-xs text-white/50 mt-1">
+            <span>Onboarding complete</span><span>80%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave divider -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-16">
+        <path d="M0 80L60 66.7C120 53.3 240 26.7 360 20C480 13.3 600 26.7 720 33.3C840 40 960 40 1080 33.3C1200 26.7 1320 13.3 1380 6.7L1440 0V80H0Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ABOUT US ═══════════════════ -->
+  <section id="about" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <div class="section-badge">About Us</div>
+        <h2 class="font-display font-extrabold text-brand-navy text-4xl sm:text-5xl mt-3">
+          Who We Are
+        </h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Powering remote careers with purpose, support, and everything you need to thrive.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+        <!-- Main about card -->
+        <div class="lg:col-span-2 reveal">
+          <div class="about-card rounded-3xl p-8 lg:p-10 bg-gradient-to-br from-brand-pale to-white border border-brand-light/20 h-full">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                <i class="fas fa-building text-white text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-brand-navy text-2xl">Propeller Digital Agency</h3>
+                <p class="text-brand-sky font-medium text-sm mt-0.5">Dynamic Remote-First Company</p>
+              </div>
+            </div>
+            <p class="text-gray-600 leading-relaxed text-lg">
+              Propeller Digital Agency is a dynamic company offering fully remote data entry roles. We are committed to supporting our team by providing all the tools you need to succeed, including equipment like computers and other devices shipped to you after onboarding.
+            </p>
+            <div class="mt-8 grid sm:grid-cols-3 gap-4">
+              <div class="mini-stat-card rounded-2xl p-4 bg-white border border-gray-100 shadow-sm text-center hover:shadow-md transition-all hover:-translate-y-1">
+                <div class="w-10 h-10 bg-brand-pale rounded-xl flex items-center justify-center mx-auto mb-2">
+                  <i class="fas fa-users text-brand-sky"></i>
+                </div>
+                <div class="font-display font-bold text-brand-navy text-sm">Global Team</div>
+                <div class="text-gray-400 text-xs mt-0.5">Worldwide Members</div>
+              </div>
+              <div class="mini-stat-card rounded-2xl p-4 bg-white border border-gray-100 shadow-sm text-center hover:shadow-md transition-all hover:-translate-y-1">
+                <div class="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center mx-auto mb-2">
+                  <i class="fas fa-shield-alt text-green-500"></i>
+                </div>
+                <div class="font-display font-bold text-brand-navy text-sm">Fully Equipped</div>
+                <div class="text-gray-400 text-xs mt-0.5">Tools Provided</div>
+              </div>
+              <div class="mini-stat-card rounded-2xl p-4 bg-white border border-gray-100 shadow-sm text-center hover:shadow-md transition-all hover:-translate-y-1">
+                <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center mx-auto mb-2">
+                  <i class="fas fa-graduation-cap text-purple-500"></i>
+                </div>
+                <div class="font-display font-bold text-brand-navy text-sm">Free Training</div>
+                <div class="text-gray-400 text-xs mt-0.5">Full Onboarding</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column cards -->
+        <div class="flex flex-col gap-6 reveal-right">
+          <div class="value-card rounded-3xl p-6 bg-brand-navy text-white hover:scale-105 transition-all shadow-xl">
+            <div class="w-12 h-12 bg-brand-sky/20 rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-heart text-brand-light text-lg"></i>
+            </div>
+            <h4 class="font-display font-bold text-lg mb-2">People First</h4>
+            <p class="text-white/70 text-sm leading-relaxed">Our team's wellbeing drives every decision we make.</p>
+          </div>
+          <div class="value-card rounded-3xl p-6 bg-brand-sky text-white hover:scale-105 transition-all shadow-xl">
+            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-rocket text-white text-lg"></i>
+            </div>
+            <h4 class="font-display font-bold text-lg mb-2">Growth Focused</h4>
+            <p class="text-white/70 text-sm leading-relaxed">We invest in your development from day one, at no cost to you.</p>
+          </div>
+          <div class="value-card rounded-3xl p-6 bg-gradient-to-br from-brand-pale to-sky-100 border border-brand-light/20 hover:scale-105 transition-all shadow-md">
+            <div class="w-12 h-12 bg-brand-pale rounded-2xl flex items-center justify-center mb-4">
+              <i class="fas fa-handshake text-brand-sky text-lg"></i>
+            </div>
+            <h4 class="font-display font-bold text-brand-navy text-lg mb-2">Supportive Culture</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">A team that's always ready to help you succeed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ WHAT YOU'LL DO ═══════════════════ -->
+  <section id="whatyoulldo" class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <div class="section-badge">Role Overview</div>
+        <h2 class="font-display font-extrabold text-brand-navy text-4xl sm:text-5xl mt-3">What You'll Do</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Simple, impactful tasks that keep our operations running smoothly.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <!-- Task cards -->
+        <div class="space-y-5 reveal">
+          <div class="task-card group bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-start gap-5">
+            <div class="w-14 h-14 bg-brand-pale rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-sky group-hover:scale-110 transition-all">
+              <i class="fas fa-keyboard text-brand-sky group-hover:text-white text-xl transition-colors"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-brand-navy text-lg mb-1">Data Entry & Management</h3>
+              <p class="text-gray-500 leading-relaxed">Enter employee and customer information into our systems with precision and care.</p>
+            </div>
+          </div>
+
+          <div class="task-card group bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-start gap-5">
+            <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-green-500 group-hover:scale-110 transition-all">
+              <i class="fas fa-check-double text-green-500 group-hover:text-white text-xl transition-colors"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-brand-navy text-lg mb-1">Accuracy-Focused Tasks</h3>
+              <p class="text-gray-500 leading-relaxed">Perform straightforward data tasks with a focus on accuracy and quality output.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side feature block -->
+        <div class="reveal-right">
+          <div class="bg-gradient-to-br from-brand-navy to-brand-blue rounded-3xl p-8 lg:p-10 text-white shadow-2xl">
+            <h3 class="font-display font-bold text-2xl mb-6">Why This Role Is Perfect For You</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-sky/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/85 leading-relaxed">No prior experience required — training is provided completely free of charge</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-sky/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/85 leading-relaxed">Flexible hours so you can work around your schedule and commitments</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-sky/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/85 leading-relaxed">All equipment shipped to your door — laptop, devices, everything you need</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-brand-sky/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/85 leading-relaxed">Fully remote — work from the comfort of your home or anywhere in the world</span>
+              </li>
+            </ul>
+            <a href="#apply" class="inline-flex items-center gap-2 mt-8 bg-white text-brand-navy font-display font-bold text-sm px-6 py-3 rounded-full hover:scale-105 shadow-lg transition-all">
+              <i class="fas fa-arrow-right"></i> Apply Today
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ JOB DETAILS ═══════════════════ -->
+  <section id="jobdetails" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <div class="section-badge">Compensation & Perks</div>
+        <h2 class="font-display font-extrabold text-brand-navy text-4xl sm:text-5xl mt-3">Job Details</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Everything you need to know before you apply.</p>
+      </div>
+
+      <!-- Main details grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 reveal">
+        <div class="detail-card group rounded-2xl p-7 border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+          <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fas fa-dollar-sign text-green-500 text-2xl"></i>
+          </div>
+          <div class="font-display font-bold text-brand-navy text-sm uppercase tracking-wider mb-1">Pay Rate</div>
+          <div class="font-display font-extrabold text-4xl text-green-500">$35<span class="text-xl text-gray-400 font-medium">/hr</span></div>
+          <p class="text-gray-500 text-sm mt-2">Competitive hourly rate paid consistently</p>
+        </div>
+
+        <div class="detail-card group rounded-2xl p-7 border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+          <div class="w-14 h-14 bg-brand-pale rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fas fa-clock text-brand-sky text-2xl"></i>
+          </div>
+          <div class="font-display font-bold text-brand-navy text-sm uppercase tracking-wider mb-1">Schedule</div>
+          <div class="font-display font-extrabold text-2xl text-brand-navy">Flexible</div>
+          <p class="text-gray-500 text-sm mt-2">Full-time or part-time options available</p>
+          <div class="flex gap-2 mt-3">
+            <span class="px-2 py-0.5 bg-brand-pale text-brand-sky text-xs rounded-full font-medium">Full-time</span>
+            <span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full font-medium">Part-time</span>
+          </div>
+        </div>
+
+        <div class="detail-card group rounded-2xl p-7 border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+          <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fas fa-map-marker-alt text-purple-500 text-2xl"></i>
+          </div>
+          <div class="font-display font-bold text-brand-navy text-sm uppercase tracking-wider mb-1">Location</div>
+          <div class="font-display font-extrabold text-2xl text-brand-navy">Anywhere</div>
+          <p class="text-gray-500 text-sm mt-2">100% remote — work from anywhere in the world!</p>
+        </div>
+
+        <div class="detail-card group rounded-2xl p-7 border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+          <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fas fa-graduation-cap text-amber-500 text-2xl"></i>
+          </div>
+          <div class="font-display font-bold text-brand-navy text-sm uppercase tracking-wider mb-1">Training</div>
+          <div class="font-display font-extrabold text-2xl text-brand-navy">100% Free</div>
+          <p class="text-gray-500 text-sm mt-2">Comprehensive online training at no cost to you</p>
+        </div>
+
+        <div class="detail-card group rounded-2xl p-7 border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+          <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fas fa-calendar-alt text-red-400 text-2xl"></i>
+          </div>
+          <div class="font-display font-bold text-brand-navy text-sm uppercase tracking-wider mb-1">Shifts</div>
+          <div class="font-display font-extrabold text-2xl text-brand-navy">Flexible</div>
+          <p class="text-gray-500 text-sm mt-2">Flexible hours, including weekend options available</p>
+        </div>
+
+        <div class="detail-card group rounded-2xl p-7 border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+          <div class="w-14 h-14 bg-brand-pale rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i class="fas fa-laptop text-brand-sky text-2xl"></i>
+          </div>
+          <div class="font-display font-bold text-brand-navy text-sm uppercase tracking-wider mb-1">Equipment</div>
+          <div class="font-display font-extrabold text-2xl text-brand-navy">Provided</div>
+          <p class="text-gray-500 text-sm mt-2">All devices shipped to you after successful onboarding</p>
+        </div>
+      </div>
+
+      <!-- NO EXPERIENCE banner -->
+      <div class="no-exp-banner reveal rounded-3xl p-8 lg:p-10 text-center bg-gradient-to-r from-brand-navy via-brand-blue to-brand-sky text-white shadow-2xl">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-4">
+          <i class="fas fa-star text-yellow-400 text-2xl"></i>
+        </div>
+        <h3 class="font-display font-extrabold text-3xl sm:text-4xl mb-3">NO EXPERIENCE NEEDED — WE TRAIN!</h3>
+        <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">We believe in potential over experience. Join us and we'll give you everything you need to succeed.</p>
+        <div class="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <div class="flex items-center gap-3 bg-white/10 rounded-2xl p-4 text-left">
+            <i class="fas fa-calendar-check text-brand-light text-xl flex-shrink-0"></i>
+            <span class="text-sm font-medium">Flexible scheduling to fit your lifestyle</span>
+          </div>
+          <div class="flex items-center gap-3 bg-white/10 rounded-2xl p-4 text-left">
+            <i class="fas fa-users text-brand-light text-xl flex-shrink-0"></i>
+            <span class="text-sm font-medium">Supportive team environment always there for you</span>
+          </div>
+          <div class="flex items-center gap-3 bg-white/10 rounded-2xl p-4 text-left">
+            <i class="fas fa-laptop text-brand-light text-xl flex-shrink-0"></i>
+            <span class="text-sm font-medium">All equipment provided for seamless remote work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ APPLICATION FORM ═══════════════════ -->
+  <section id="apply" class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <div class="section-badge">Join Our Team</div>
+        <h2 class="font-display font-extrabold text-brand-navy text-4xl sm:text-5xl mt-3">Apply Now</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Spots are limited — applications are coming in fast. Submit yours today!</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-10 items-start">
+        <!-- Sidebar info -->
+        <div class="lg:col-span-2 reveal">
+          <div class="bg-brand-navy rounded-3xl p-8 text-white sticky top-24">
+            <h3 class="font-display font-bold text-xl mb-6">Why Apply Today?</h3>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-brand-sky/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/80 text-sm leading-relaxed">Spots filling up fast — limited openings</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-brand-sky/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/80 text-sm leading-relaxed">Start earning $35/hr from day one after training</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-brand-sky/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/80 text-sm leading-relaxed">All equipment shipped to you — zero upfront cost</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-brand-sky/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-check text-brand-light text-xs"></i>
+                </div>
+                <span class="text-white/80 text-sm leading-relaxed">Work from any country, any time zone</span>
+              </li>
+            </ul>
+            <div class="bg-brand-sky/20 rounded-2xl p-4 text-center">
+              <div class="text-3xl font-display font-extrabold text-white">$35/hr</div>
+              <div class="text-white/60 text-xs mt-1">Starting Pay Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+       <div class="lg:col-span-3 reveal-right">
+  <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 lg:p-10">
+
+    <!-- Success Message (inline) -->
+    <div id="successMsg" class="hidden mb-6 p-4 bg-green-50 border border-green-200 rounded-2xl text-center">
+      <i class="fas fa-check-circle text-green-500 text-2xl mb-2"></i>
+      <p class="text-green-700 font-semibold">Application submitted successfully!</p>
+      <p class="text-green-600 text-sm mt-1">We'll be in touch with you soon.</p>
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorMsg" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-center">
+      <i class="fas fa-exclamation-circle text-red-500 text-2xl mb-2"></i>
+      <p class="text-red-700 font-semibold">Something went wrong. Please try again.</p>
+    </div>
+
+    <form id="applicationForm" enctype="multipart/form-data" novalidate>
+
+      <!-- Web3Forms hidden fields -->
+      <input type="hidden" name="access_key" value="f86ee023-cbb4-4467-a521-5a5795b03f85" />
+      <input type="hidden" name="subject" value="New Job Application Received!" />
+      <input type="hidden" name="from_name" value="Propeller Digital Agency" />
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+      <div class="grid sm:grid-cols-2 gap-5">
+
+        <!-- Full Name -->
+        <div class="sm:col-span-2 form-group">
+          <label class="form-label">Full Name <span class="text-red-400">*</span></label>
+          <div class="input-wrapper">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" id="fullName" name="Full Name" class="form-input" placeholder="John Doe" required />
+          </div>
+          <span class="form-error" id="fullNameError"></span>
+        </div>
+
+        <!-- Address -->
+        <div class="sm:col-span-2 form-group">
+          <label class="form-label">Address <span class="text-red-400">*</span></label>
+          <div class="input-wrapper">
+            <i class="fas fa-map-marker-alt input-icon"></i>
+            <input type="text" id="address" name="Address" class="form-input" placeholder="123 Main Street, City, Country" required />
+          </div>
+          <span class="form-error" id="addressError"></span>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+          <label class="form-label">Age <span class="text-red-400">*</span></label>
+          <div class="input-wrapper">
+            <i class="fas fa-birthday-cake input-icon"></i>
+            <input type="number" id="age" name="Age" class="form-input" placeholder="25" min="18" max="65" required />
+          </div>
+          <span class="form-error" id="ageError"></span>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label class="form-label">Gender <span class="text-red-400">*</span></label>
+          <div class="input-wrapper">
+            <i class="fas fa-venus-mars input-icon"></i>
+            <select id="gender" name="Gender" class="form-input form-select" required>
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="non-binary">Non-binary</option>
+              <option value="prefer-not">Prefer not to say</option>
+            </select>
+          </div>
+          <span class="form-error" id="genderError"></span>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label class="form-label">Phone Number <span class="text-red-400">*</span></label>
+          <div class="input-wrapper">
+            <i class="fas fa-phone input-icon"></i>
+            <input type="tel" id="phone" name="Phone Number" class="form-input" placeholder="+1 555 000 0000" required />
+          </div>
+          <span class="form-error" id="phoneError"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label">Email Address <span class="text-red-400">*</span></label>
+          <div class="input-wrapper">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required />
+          </div>
+          <span class="form-error" id="emailError"></span>
+        </div>
+
+        <!-- Resume Upload -->
+        <div class="sm:col-span-2 form-group">
+          <label class="form-label">
+            Resume / CV
+            <span class="text-gray-400 text-xs font-normal">(PDF, DOC, DOCX — Max 5MB)</span>
+          </label>
+          <div class="upload-area" id="uploadArea">
+            <input type="file" id="resume" name="Resume" class="hidden" accept=".pdf,.doc,.docx" />
+            <label for="resume" class="cursor-pointer flex flex-col items-center gap-3">
+              <div class="w-14 h-14 bg-brand-pale rounded-2xl flex items-center justify-center" id="uploadIconBox">
+                <i class="fas fa-cloud-upload-alt text-brand-sky text-2xl" id="uploadIconEl"></i>
+              </div>
+              <div class="text-center">
+                <div class="font-semibold text-brand-navy text-sm" id="uploadText">Click to upload your resume</div>
+                <div class="text-gray-400 text-xs mt-0.5" id="uploadSubText">or drag and drop your file here</div>
+              </div>
+            </label>
+          </div>
+          <span class="form-error" id="resumeError"></span>
+        </div>
+
+      </div>
+
+      <button type="submit" id="submitBtn"
+        class="w-full mt-6 bg-gradient-to-r from-brand-navy to-brand-sky text-white font-display font-bold py-4 rounded-2xl hover:shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-3 text-base">
+        <i class="fas fa-paper-plane" id="submitIcon"></i>
+        <span id="submitText">Submit Application</span>
+      </button>
+
+    </form>
+    <p class="text-center text-gray-400 text-xs mt-4">By submitting, you agree to be contacted by our recruitment team.</p>
+  </div>
+</div>
+</div>
+
+
+              <p class="text-center text-gray-400 text-xs mt-4">By submitting, you agree to be contacted by our recruitment team.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ZOOM INTERVIEW ═══════════════════ -->
+  <section id="zoom" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <div class="section-badge mx-auto w-fit">Next Step</div>
+      <h2 class="font-display font-extrabold text-brand-navy text-4xl sm:text-5xl mt-3 mb-4">Book Your Zoom Interview</h2>
+      <p class="text-gray-500 text-lg max-w-xl mx-auto mb-10">Click below to schedule your Zoom interview appointment. We look forward to meeting you!</p>
+      <div class="zoom-card bg-gradient-to-br from-brand-pale via-white to-sky-50 border border-brand-light/30 rounded-3xl p-10 lg:p-14 shadow-xl">
+        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border border-gray-100">
+          <i class="fas fa-video text-brand-sky text-3xl"></i>
+        </div>
+        <h3 class="font-display font-bold text-brand-navy text-2xl mb-3">Schedule a Virtual Meeting</h3>
+        <p class="text-gray-500 mb-8 max-w-md mx-auto">Our hiring team will walk you through the role, answer your questions, and guide you through the onboarding process.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#" class="zoom-btn inline-flex items-center justify-center gap-3 bg-brand-navy text-white font-display font-bold px-10 py-4 rounded-full hover:bg-brand-blue hover:scale-105 transition-all shadow-xl text-lg">
+            <i class="fas fa-calendar-plus"></i>
+            Book Zoom Interview
+          </a>
+          <a href="#apply" class="inline-flex items-center justify-center gap-3 bg-white text-brand-navy font-display font-semibold px-8 py-4 rounded-full hover:shadow-lg border border-gray-200 hover:border-brand-sky hover:scale-105 transition-all">
+            <i class="fas fa-file-alt text-brand-sky"></i>
+            Submit Application First
+          </a>
+        </div>
+        <div class="mt-8 flex items-center justify-center gap-6 text-sm text-gray-400">
+          <span class="flex items-center gap-1.5"><i class="fas fa-shield-alt text-green-400"></i> Secure &amp; Private</span>
+          <span class="flex items-center gap-1.5"><i class="fas fa-clock text-brand-sky"></i> 30 Min Session</span>
+          <span class="flex items-center gap-1.5"><i class="fas fa-globe text-purple-400"></i> All Time Zones</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="bg-brand-navy text-white py-14 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl bg-brand-sky flex items-center justify-center shadow-lg">
+              <i class="fas fa-paper-plane text-white text-sm rotate-45"></i>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-white">PROPELLER</div>
+              <div class="font-display text-brand-light text-xs tracking-widest">DIGITAL AGENCY</div>
+            </div>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed max-w-xs">A dynamic company offering fully remote data entry roles worldwide. We train, equip, and support you every step of the way.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="#" class="social-btn w-9 h-9 bg-white/10 hover:bg-brand-sky rounded-lg flex items-center justify-center transition-all hover:scale-110"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="social-btn w-9 h-9 bg-white/10 hover:bg-brand-sky rounded-lg flex items-center justify-center transition-all hover:scale-110"><i class="fab fa-twitter text-sm"></i></a>
+            <a href="#" class="social-btn w-9 h-9 bg-white/10 hover:bg-brand-sky rounded-lg flex items-center justify-center transition-all hover:scale-110"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="social-btn w-9 h-9 bg-white/10 hover:bg-brand-sky rounded-lg flex items-center justify-center transition-all hover:scale-110"><i class="fab fa-linkedin-in text-sm"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider mb-4 text-brand-light">Quick Links</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#about"       class="text-white/60 hover:text-white text-sm transition-colors hover:translate-x-1 inline-block">About Us</a></li>
+            <li><a href="#whatyoulldo" class="text-white/60 hover:text-white text-sm transition-colors hover:translate-x-1 inline-block">What You'll Do</a></li>
+            <li><a href="#jobdetails"  class="text-white/60 hover:text-white text-sm transition-colors hover:translate-x-1 inline-block">Job Details</a></li>
+            <li><a href="#apply"       class="text-white/60 hover:text-white text-sm transition-colors hover:translate-x-1 inline-block">Apply Now</a></li>
+            <li><a href="#zoom"        class="text-white/60 hover:text-white text-sm transition-colors hover:translate-x-1 inline-block">Zoom Interview</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider mb-4 text-brand-light">Contact</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2.5 text-white/60 text-sm">
+              <i class="fas fa-envelope text-brand-sky mt-0.5"></i>
+              <span>careers@propellerdigital.com</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-white/60 text-sm">
+              <i class="fas fa-globe text-brand-sky mt-0.5"></i>
+              <span>www.propellerdigital.com</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-white/60 text-sm">
+              <i class="fas fa-clock text-brand-sky mt-0.5"></i>
+              <span>24/7 — Worldwide Remote</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-white/40 text-sm">© 2025 Propeller Digital Agency. All rights reserved.</p>
+        <div class="flex gap-5">
+          <a href="#" class="text-white/40 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <a href="#" class="text-white/40 hover:text-white text-xs transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ WHATSAPP FAB ═══════════════════ -->
+  <a href="https://wa.me/+15012590639" target="_blank" rel="noopener noreferrer" id="whatsappBtn" class="whatsapp-fab fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-400 hover:scale-110 transition-all" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp text-3xl"></i>
+    <span class="wa-pulse absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30"></span>
+  </a>
+
+  <!-- ═══════════════════ SUCCESS MODAL ═══════════════════ -->
+  <div id="successModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div class="modal-overlay absolute inset-0 bg-black/50 backdrop-blur-sm" id="modalOverlay"></div>
+    <div class="modal-box relative bg-white rounded-3xl shadow-2xl p-10 max-w-md w-full text-center scale-in">
+      <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-5">
+        <i class="fas fa-check-circle text-green-500 text-4xl"></i>
+      </div>
+      <h3 class="font-display font-extrabold text-brand-navy text-2xl mb-3">Application Received!</h3>
+      <p class="text-gray-500 mb-6">Thank you for applying to Propeller Digital Agency! Our recruitment team will review your application and reach out to schedule your Zoom interview shortly.</p>
+      <div class="bg-brand-pale rounded-2xl p-4 mb-6 text-left">
+        <div class="flex items-center gap-2 text-brand-navy text-sm font-medium mb-1"><i class="fas fa-clock text-brand-sky"></i> What happens next?</div>
+        <ul class="text-gray-500 text-xs space-y-1 mt-2">
+          <li>• Our team reviews your application (1–2 days)</li>
+          <li>• You'll receive a Zoom interview invitation</li>
+          <li>• Complete your onboarding & receive your equipment</li>
+          <li>• Start earning $35/hr from home!</li>
+        </ul>
+      </div>
+      <button id="closeModal" class="w-full bg-brand-navy text-white font-display font-bold py-3.5 rounded-2xl hover:bg-brand-blue transition-all">
+        Got it! 🎉
+      </button>
+    </div>
+  </div>
+
+  <script src="props.js"></script>
+</body>
+</html>
