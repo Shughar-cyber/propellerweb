@@ -257,7 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const successMsg = document.getElementById('successMsg');
   const errorMsg   = document.getElementById('errorMsg');
 
-  if (!form) return;
+  if (!form || !submitBtn || !submitIcon || !submitText || !successMsg || !errorMsg) {
+    console.warn('Application form elements are not ready; skipping submission handler.');
+    return;
+  }
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -276,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitText.textContent = 'Submitting...';
     submitBtn.disabled     = true;
     errorMsg.classList.add('hidden');
+    successMsg.classList.add('hidden');
 
     try {
       const formData = new FormData(form);
@@ -305,14 +309,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     } catch (err) {
-      console.error('Basin fetch error:', err.message);
+      const message = err && err.message ? err.message : 'Unknown network error.';
+      console.error('Basin fetch error:', message);
       errorMsg.classList.remove('hidden');
+      successMsg.classList.add('hidden');
+      const errorText = errorMsg.querySelector('p');
+      if (errorText) {
+        errorText.textContent = 'Network error: ' + message + '. Check your connection.';
+      }
     }
 
     // Reset button state
-    submitIcon.className   = 'fas fa-paper-plane';
-    submitText.textContent = 'Submit Application';
-    submitBtn.disabled     = false;
+    if (submitIcon) submitIcon.className = 'fas fa-paper-plane';
+    if (submitText) submitText.textContent = 'Submit Application';
+    if (submitBtn) submitBtn.disabled = false;
   });
 
 }); // end DOMContentLoaded
