@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const formData = new FormData(form);
 
-      const res = await fetch('https://usebasin.com/f/e1e8d78ad55b', {
+      const res = await fetch('https://usebasin.com/f/1b98e4890b69', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: formData

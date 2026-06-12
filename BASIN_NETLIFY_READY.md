@@ -3,7 +3,7 @@
 ## ✅ Code Status
 
 ### Basin Integration
-- [x] Basin endpoint configured: `https://usebasin.com/f/e1e8d78ad55b`
+- [x] Basin endpoint configured: `https://usebasin.com/f/1b98e4890b69`
 - [x] Form submission handler added
 - [x] File upload support (Resume)
 - [x] Form validation
